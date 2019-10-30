@@ -144,6 +144,11 @@ func (b *AutoscalingGroupModelBuilder) buildLaunchConfigurationTask(c *fi.ModelB
 
 	retainVolumeOnTermination := fi.BoolValue(ig.Spec.RetainVolumeOnTermination)
 
+	volumeTermination := fi.Bool(true)
+	if retainVolumeOnTermination {
+		volumeTermination = fi.Bool(false)
+	}
+
 	// @step: if required we add the override for the security group for this instancegroup
 	sgLink := b.LinkToSecurityGroup(ig.Spec.Role)
 	if ig.Spec.SecurityGroupOverride != nil {
@@ -214,7 +219,7 @@ func (b *AutoscalingGroupModelBuilder) buildLaunchConfigurationTask(c *fi.ModelB
 		}
 		t.BlockDeviceMappings = append(t.BlockDeviceMappings, &awstasks.BlockDeviceMapping{
 			DeviceName:             fi.String(x.Device),
-			EbsDeleteOnTermination: fi.Bool(retainVolumeOnTermination),
+			EbsDeleteOnTermination: volumeTermination,
 			EbsEncrypted:           x.Encrypted,
 			EbsVolumeIops:          x.Iops,
 			EbsVolumeSize:          fi.Int64(x.Size),
