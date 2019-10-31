@@ -620,6 +620,9 @@ spec:
               description: NodeLabels indicates the kubernetes labels for nodes in
                 this group
               type: object
+            retainVolumeOnTermination:
+              description: Keep the root volume upon instance termination
+              type: boolean
             role:
               description: 'Type determines the role of instances in this group: masters
                 or nodes'

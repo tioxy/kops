@@ -2874,6 +2874,7 @@ func autoConvert_v1alpha1_InstanceGroupSpec_To_kops_InstanceGroupSpec(in *Instan
 	out.RootVolumeSize = in.RootVolumeSize
 	out.RootVolumeType = in.RootVolumeType
 	out.RootVolumeIops = in.RootVolumeIops
+	out.RetainVolumeOnTermination = in.RetainVolumeOnTermination
 	out.RootVolumeOptimization = in.RootVolumeOptimization
 	if in.Volumes != nil {
 		in, out := &in.Volumes, &out.Volumes
@@ -2994,6 +2995,7 @@ func autoConvert_kops_InstanceGroupSpec_To_v1alpha1_InstanceGroupSpec(in *kops.I
 	out.RootVolumeSize = in.RootVolumeSize
 	out.RootVolumeType = in.RootVolumeType
 	out.RootVolumeIops = in.RootVolumeIops
+	out.RetainVolumeOnTermination = in.RetainVolumeOnTermination
 	out.RootVolumeOptimization = in.RootVolumeOptimization
 	if in.Volumes != nil {
 		in, out := &in.Volumes, &out.Volumes
