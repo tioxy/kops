@@ -74,6 +74,12 @@ spec:
   subnets:
   - us-test-1a
   detailedInstanceMonitoring: true
+  rootVolumeRetainOnTermination: true
+  volumes:
+  - device: /dev/xvdd
+    retainOnTermination: true
+    size: 20
+    type: gp2
 
 ---
 
