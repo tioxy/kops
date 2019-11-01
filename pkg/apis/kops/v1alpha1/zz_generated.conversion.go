@@ -2875,6 +2875,7 @@ func autoConvert_v1alpha1_InstanceGroupSpec_To_kops_InstanceGroupSpec(in *Instan
 	out.RootVolumeType = in.RootVolumeType
 	out.RootVolumeIops = in.RootVolumeIops
 	out.RootVolumeOptimization = in.RootVolumeOptimization
+	out.RootVolumeRetainOnTermination = in.RootVolumeRetainOnTermination
 	if in.Volumes != nil {
 		in, out := &in.Volumes, &out.Volumes
 		*out = make([]*kops.VolumeSpec, len(*in))
@@ -2995,6 +2996,7 @@ func autoConvert_kops_InstanceGroupSpec_To_v1alpha1_InstanceGroupSpec(in *kops.I
 	out.RootVolumeType = in.RootVolumeType
 	out.RootVolumeIops = in.RootVolumeIops
 	out.RootVolumeOptimization = in.RootVolumeOptimization
+	out.RootVolumeRetainOnTermination = in.RootVolumeRetainOnTermination
 	if in.Volumes != nil {
 		in, out := &in.Volumes, &out.Volumes
 		*out = make([]*VolumeSpec, len(*in))
@@ -4716,6 +4718,7 @@ func autoConvert_v1alpha1_VolumeSpec_To_kops_VolumeSpec(in *VolumeSpec, out *kop
 	out.Iops = in.Iops
 	out.Size = in.Size
 	out.Type = in.Type
+	out.RetainOnTermination = in.RetainOnTermination
 	return nil
 }
 
@@ -4730,6 +4733,7 @@ func autoConvert_kops_VolumeSpec_To_v1alpha1_VolumeSpec(in *kops.VolumeSpec, out
 	out.Iops = in.Iops
 	out.Size = in.Size
 	out.Type = in.Type
+	out.RetainOnTermination = in.RetainOnTermination
 	return nil
 }
 

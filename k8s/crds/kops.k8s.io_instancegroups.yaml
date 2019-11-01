@@ -633,6 +633,10 @@ spec:
               description: RootVolumeOptimization enables EBS optimization for an
                 instance
               type: boolean
+            rootVolumeRetainOnTermination:
+              description: RootVolumeRetainOnTermination prevents root volume from
+                being deleted after instance termination
+              type: boolean
             rootVolumeSize:
               description: RootVolumeSize is the size of the EBS root volume to use,
                 in GB
@@ -713,6 +717,10 @@ spec:
                       in aws)
                     format: int64
                     type: integer
+                  retainOnTermination:
+                    description: RetainOnTermination prevents volume from being deleted
+                      after instance termination
+                    type: boolean
                   size:
                     description: Size is the size of the volume in GB
                     format: int64
