@@ -1502,6 +1502,11 @@ func (in *InstanceGroupSpec) DeepCopyInto(out *InstanceGroupSpec) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.RootVolumeRetainOnTermination != nil {
+		in, out := &in.RootVolumeRetainOnTermination, &out.RootVolumeRetainOnTermination
+		*out = new(bool)
+		**out = **in
+	}
 	if in.Volumes != nil {
 		in, out := &in.Volumes, &out.Volumes
 		*out = make([]*VolumeSpec, len(*in))
@@ -3373,6 +3378,11 @@ func (in *VolumeSpec) DeepCopyInto(out *VolumeSpec) {
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
 		*out = new(int64)
+		**out = **in
+	}
+	if in.RetainOnTermination != nil {
+		in, out := &in.RetainOnTermination, &out.RetainOnTermination
+		*out = new(bool)
 		**out = **in
 	}
 	return
