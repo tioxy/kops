@@ -624,6 +624,10 @@ spec:
               description: 'Type determines the role of instances in this group: masters
                 or nodes'
               type: string
+            rootVolumeDeleteOnTermination:
+              description: RootVolumeDeleteOnTermination states if the root volume
+                will be deleted after instance termination
+              type: boolean
             rootVolumeIops:
               description: If volume type is io1, then we need to specify the number
                 of Iops.
@@ -702,6 +706,10 @@ spec:
                 description: VolumeSpec defined the spec for an additional volume
                   attached to the instance group
                 properties:
+                  deleteOnTermination:
+                    description: DeleteOnTermination states if the volume will be
+                      deleted after instance termination
+                    type: boolean
                   device:
                     description: Device is an optional device name of the block device
                     type: string
