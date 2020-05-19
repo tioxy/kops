@@ -277,7 +277,7 @@ spec:
       terminationGracePeriodSeconds: 60
       serviceAccountName: nginx-ingress-controller
       containers:
-      - image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.18.0
+      - image: kubernetes-ingress-controller/nginx-ingress-controller:0.18.0
         name: nginx-ingress-controller
         imagePullPolicy: Always
         ports:

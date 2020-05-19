@@ -6464,9 +6464,9 @@ spec:
       - args:
         - --kubelet-service=kube-system/kubelet
         - --logtostderr=true
-        - --config-reloader-image=quay.io/coreos/configmap-reload:v0.0.1
-        - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.25.0
-        image: quay.io/coreos/prometheus-operator:v0.25.0
+        - --config-reloader-image=coreos/configmap-reload:v0.0.1
+        - --prometheus-config-reloader=coreos/prometheus-config-reloader:v0.25.0
+        image: coreos/prometheus-operator:v0.25.0
         name: prometheus-operator
         ports:
         - containerPort: 8080
@@ -6533,7 +6533,7 @@ metadata:
   name: main
   namespace: monitoring
 spec:
-  baseImage: quay.io/prometheus/alertmanager
+  baseImage: prometheus/alertmanager
   nodeSelector:
     beta.kubernetes.io/os: linux
   replicas: 3
@@ -14203,7 +14203,7 @@ spec:
       - args:
         - --secure-listen-address=:8443
         - --upstream=http://127.0.0.1:8081/
-        image: quay.io/coreos/kube-rbac-proxy:v0.4.0
+        image: coreos/kube-rbac-proxy:v0.4.0
         name: kube-rbac-proxy-main
         ports:
         - containerPort: 8443
@@ -14218,7 +14218,7 @@ spec:
       - args:
         - --secure-listen-address=:9443
         - --upstream=http://127.0.0.1:8082/
-        image: quay.io/coreos/kube-rbac-proxy:v0.4.0
+        image: coreos/kube-rbac-proxy:v0.4.0
         name: kube-rbac-proxy-self
         ports:
         - containerPort: 9443
@@ -14235,7 +14235,7 @@ spec:
         - --port=8081
         - --telemetry-host=127.0.0.1
         - --telemetry-port=8082
-        image: quay.io/coreos/kube-state-metrics:v1.4.0
+        image: coreos/kube-state-metrics:v1.4.0
         name: kube-state-metrics
         resources:
           limits:
@@ -14264,7 +14264,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: quay.io/coreos/addon-resizer:1.0
+        image: coreos/addon-resizer:1.0
         name: addon-resizer
         resources:
           limits:
@@ -14431,7 +14431,7 @@ spec:
         - --path.sysfs=/host/sys
         - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+)($|/)
         - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$
-        image: quay.io/prometheus/node-exporter:v0.16.0
+        image: prometheus/node-exporter:v0.16.0
         name: node-exporter
         resources:
           limits:
@@ -14459,7 +14459,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
-        image: quay.io/coreos/kube-rbac-proxy:v0.4.0
+        image: coreos/kube-rbac-proxy:v0.4.0
         name: kube-rbac-proxy
         ports:
         - containerPort: 9100
@@ -14663,7 +14663,7 @@ spec:
         - --metrics-relist-interval=1m
         - --prometheus-url=http://prometheus-k8s.monitoring.svc:9090/
         - --secure-port=6443
-        image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.3.0
+        image: coreos/k8s-prometheus-adapter-amd64:v0.3.0
         name: prometheus-adapter
         ports:
         - containerPort: 6443
@@ -14764,7 +14764,7 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
-  baseImage: quay.io/prometheus/prometheus
+  baseImage: prometheus/prometheus
   nodeSelector:
     beta.kubernetes.io/os: linux
   replicas: 2

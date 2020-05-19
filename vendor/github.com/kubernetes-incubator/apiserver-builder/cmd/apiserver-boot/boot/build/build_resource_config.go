@@ -386,7 +386,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: etcd
-        image: quay.io/coreos/etcd:latest
+        image: coreos/etcd:latest
         imagePullPolicy: Always
         resources:
           requests:
