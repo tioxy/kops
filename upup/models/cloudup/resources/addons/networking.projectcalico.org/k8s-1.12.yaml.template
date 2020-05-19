@@ -468,7 +468,7 @@ spec:
       serviceAccountName: calico-node
       containers:
         - name: calico-kube-controllers
-          image: quay.io/calico/kube-controllers:v3.7.4
+          image: ifoodhub/calico/kube-controllers:v3.7.4
           env:
             # Choose which controllers to run.
             - name: ENABLED_CONTROLLERS
@@ -527,7 +527,7 @@ spec:
         # This container installs the Calico CNI binaries
         # and CNI network config file on each node.
         - name: install-cni
-          image: quay.io/calico/cni:v3.7.4
+          image: ifoodhub/calico/cni:v3.7.4
           command: ["/install-cni.sh"]
           env:
             # Name of the CNI config file to create.
@@ -563,7 +563,7 @@ spec:
         # container programs network policy and routes on each
         # host.
         - name: calico-node
-          image: quay.io/calico/node:v3.7.4
+          image: ifoodhub/calico/node:v3.7.4
           env:
             # Use Kubernetes API as the backing datastore.
             - name: DATASTORE_TYPE
